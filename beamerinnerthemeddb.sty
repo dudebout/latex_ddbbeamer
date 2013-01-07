@@ -1,0 +1,15 @@
+\ProvidesPackage{beamerinnerthemeddb}
+
+\defbeamertemplate{background}{ddbgraphics}[1][]{
+  \includegraphics[width=\paperwidth,height=\paperheight]{#1}
+}
+
+\defbeamertemplate*{title page}{ddbsimple}{
+  \usebeamerfont{title}\usebeamercolor[fg]{structure}\inserttitle\par
+  \bigskip
+  \usebeamerfont{subtitle}\usebeamercolor[fg]{normal text}\insertauthor\par
+  \medskip
+  \small\usebeamercolor[fg]{structure}\textit{\insertinstitute}\par
+}
+
+\setbeamertemplate{itemize items}[circle]

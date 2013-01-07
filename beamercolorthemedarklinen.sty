@@ -1,0 +1,31 @@
+\ProvidesPackage{beamercolorthemedarklinen}
+
+\RequirePackage{pgfplots}
+
+\definecolor{darklinencream}{RGB}{255,240,165}
+\definecolor{darklinenorange}{RGB}{255,176,59}
+\definecolor{darklinengreen}{RGB}{34,139,34}
+\definecolor{darklinenred}{RGB}{255,38,33}
+\definecolor{darklinenbrown}{RGB}{153,27,8}
+\definecolor{darklinengray}{RGB}{38,38,38}
+
+
+\setbeamercolor{normal text}{bg=darklinengray, fg=darklinencream}
+\setbeamercolor{structure}{fg=darklinenorange}
+\setbeamercolor{alerted text}{fg=darklinenred, bg=darklinenorange}
+
+\setbeamercolor{normal diagram}{bg=darklinengreen, fg=darklinencream}
+\setbeamercolor{alerted diagram}{fg=darklinenbrown}
+
+\usebeamercolor{normal diagram}
+\usebeamercolor{alerted diagram}
+
+
+\definecolor{beamerpink}{RGB}{255,105,180}
+\definecolor{beamerblue}{RGB}{135,206,250}
+
+
+\pgfplotscreateplotcyclelist{beamerplotcyclelist}{
+  {darklinenorange},
+  {darklinengreen}
+}
