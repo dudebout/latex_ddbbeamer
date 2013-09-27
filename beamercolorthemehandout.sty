@@ -1,0 +1,18 @@
+\ProvidesPackage{beamercolorthemehandout}
+
+\RequirePackage{pgfplots}
+
+\definecolor{beamerpink}{RGB}{255,105,180}
+\definecolor{beamerblue}{RGB}{135,206,250}
+
+
+\setbeamercolor{normal diagram}{bg=white, fg=black}
+\setbeamercolor{alerted diagram}{fg=red}
+
+\usebeamercolor{normal diagram}
+\usebeamercolor{alerted diagram}
+
+\pgfplotscreateplotcyclelist{beamerplotcyclelist}{
+  {red},
+  {blue},
+}
