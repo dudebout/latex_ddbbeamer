@@ -1,0 +1,53 @@
+\ProvidesPackage{ddbswitch}
+
+% http://gelisam.blogspot.com/2008/10/rant-against-beamers-shaky-animation.html
+%
+% Usage:
+% \switch{%
+% \case<1>{element in frame 1}%
+% \case<2>{element in frame 2}%
+% }
+%
+% Warning:
+% There is no whitespace handling, therefore the end-of-line comment signs are
+% absolutely required.
+
+\newdimen\switch@maxw
+\newdimen\switch@maxh
+\newdimen\switch@maxd
+\newdimen\switch@dim
+\newbox\switch@box%
+\newbox\switch@nospace%
+
+\def\switch#1{%
+  \switch@maxw=0pt%
+  \switch@maxh=0pt%
+  \switch@maxd=0pt%
+  \def\case<##1>##2{%
+    \setbox\switch@box=\hbox{##2}%
+    %
+    \switch@dim=\wd\switch@box%
+    \ifdim\switch@dim>\switch@maxw%
+      \switch@maxw=\switch@dim%
+    \fi%
+    \switch@dim=\ht\switch@box%
+    \ifdim\switch@dim>\switch@maxh%
+      \switch@maxh=\switch@dim%
+    \fi%
+    \switch@dim=\dp\switch@box%
+    \ifdim\switch@dim>\switch@maxh%
+      \switch@maxd=\switch@dim%
+    \fi%
+  }%
+  #1%
+  \def\case<##1>##2{%
+    \setbox\switch@nospace=\hbox to \switch@maxw{\hfill##2\hfill}%
+    \wd\switch@nospace=0pt%
+    \only<##1>{\box\switch@nospace}%
+  }%
+  \setbox\switch@box=\hbox{#1}%
+  \wd\switch@box=\switch@maxw%
+  \ht\switch@box=\switch@maxh%
+  \dp\switch@box=\switch@maxd%
+  \fbox{\box\switch@box}%
+}
